@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/animal_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2pt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="172dp"
+            android:layout_height="122dp"
+            android:padding="2dp"
+            app:srcCompat="@drawable/adm6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="146dp"
+                android:layout_height="53dp"
+                android:text="Push-Ups"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/desciption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Works chest and Triceps"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
