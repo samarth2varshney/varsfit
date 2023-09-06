@@ -21,12 +21,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Varsfit"
         tools:targetApi="31">
-
+        <activity
+            android:name=".show_exercise"
+            android:exported="false" />
+        <activity
+            android:name=".CustomUiActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".stepcounter"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -41,15 +51,6 @@
         <activity
             android:name=".login_page"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".video_refrence"
-            android:exported="true"
-            android:screenOrientation="landscape">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -71,14 +72,6 @@
         <activity
             android:name=".exersie_info"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

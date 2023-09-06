@@ -1,12 +1,10 @@
 package com.example.android.varsfit
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.example.android.varsfit.databinding.ActivityHomePageBinding
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
@@ -22,32 +20,33 @@ class Home_page : AppCompatActivity(),TextToSpeech.OnInitListener{
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         auth = FirebaseAuth.getInstance()
         setContentView(binding.root)
-        replaceFragment(Home())
-
 
         binding.bottomNavigationView3.setOnItemSelectedListener {
 
             when(it.itemId){
-                R.id.Home ->replaceFragment(Home())
+                R.id.Home ->replaceFragment(TrainingProgramFragment())
                 R.id.person ->replaceFragment(person())
             }
 
             true
         }
+
+        replaceFragment(TrainingProgramFragment())
+
         tts = TextToSpeech(this, this)
         val name = auth.currentUser!!.displayName
 
-        Timer().schedule(500){
-            val text = "hello $name welcome back"
-            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
-        }
+//        Timer().schedule(500){
+//            val text = "hello $name welcome back"
+//            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+//        }
 
     }
     private fun replaceFragment(fragment: Fragment){
-
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,fragment)
-        fragmentTransaction.commit()
+        supportFragmentManager.beginTransaction()
+            .replace(binding.frameLayout.id, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onInit(status: Int) {

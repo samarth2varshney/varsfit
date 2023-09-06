@@ -32,16 +32,12 @@ class login_page : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
-        val userid = auth.currentUser!!.uid
         database = FirebaseDatabase.getInstance().getReference("Users")
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("gender", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val weigh: SharedPreferences = getSharedPreferences("weight", Context.MODE_PRIVATE)
         val edit: SharedPreferences.Editor = weigh.edit()
-
-        val profileimage = auth.currentUser!!.photoUrl
-
 
         val check = GoogleSignIn.getLastSignedInAccount(this)
         if(check!=null){
@@ -80,7 +76,6 @@ class login_page : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             handleResults(task)
         }
-
     }
 
     private fun handleResults(task: Task<GoogleSignInAccount>) {

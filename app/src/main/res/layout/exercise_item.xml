@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/round_white_bg"
+    android:elevation="10dp"
+    android:padding="13dp">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="3:1"
+        android:background="@drawable/round_white_bg"
+        android:backgroundTint="@color/black"
+        android:clipToOutline="true"
+        android:src="@drawable/adm6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/reps_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Resps in each set - "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_text" />
+
+    <CheckBox
+        android:id="@+id/customCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:button="@drawable/custom_checkbox_selector"
+        app:layout_constraintEnd_toStartOf="@+id/customCheckBox2"
+        app:layout_constraintTop_toBottomOf="@+id/name_text" />
+
+    <TextView
+        android:id="@+id/settext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set 1"
+        app:layout_constraintEnd_toEndOf="@+id/customCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/customCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/customCheckBox" />
+
+    <CheckBox
+        android:id="@+id/customCheckBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="20dp"
+        android:button="@drawable/custom_checkbox_selector"
+        app:layout_constraintEnd_toStartOf="@+id/customCheckBox3"
+        app:layout_constraintTop_toTopOf="@+id/customCheckBox" />
+
+    <TextView
+        android:id="@+id/settext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set 2"
+        app:layout_constraintEnd_toEndOf="@+id/customCheckBox2"
+        app:layout_constraintStart_toStartOf="@+id/customCheckBox2"
+        app:layout_constraintTop_toBottomOf="@+id/customCheckBox2" />
+
+    <CheckBox
+        android:id="@+id/customCheckBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="10dp"
+        android:button="@drawable/custom_checkbox_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/customCheckBox" />
+
+    <TextView
+        android:id="@+id/settext3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set 3"
+        app:layout_constraintEnd_toEndOf="@+id/customCheckBox3"
+        app:layout_constraintStart_toStartOf="@+id/customCheckBox3"
+        app:layout_constraintTop_toBottomOf="@+id/customCheckBox3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

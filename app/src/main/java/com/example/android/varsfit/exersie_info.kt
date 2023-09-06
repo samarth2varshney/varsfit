@@ -97,7 +97,7 @@ class exersie_info : AppCompatActivity() {
         Glide.with(this@exersie_info).load(videorefrence[index]).into(binding.thumbnailid)
 
         binding.thumbnailid.setOnClickListener {
-             intent = Intent(this@exersie_info,video_refrence::class.java)
+             intent = Intent(this@exersie_info,CustomUiActivity::class.java)
              intent.putExtra("videoid",videoid)
              intent.putExtra("position",index)
             startActivity(intent)

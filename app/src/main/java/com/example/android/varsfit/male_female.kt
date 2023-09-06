@@ -6,11 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.NumberPicker
-import android.widget.TextView
 import android.widget.Toast
-import com.example.android.varsfit.databinding.ActivityMainBinding
 import com.example.android.varsfit.databinding.ActivityMaleFemaleBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
