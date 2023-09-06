@@ -70,13 +70,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".exersie_info"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".splash_screen"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
