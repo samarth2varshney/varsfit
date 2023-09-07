@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.varsfit.databinding.ActivityShowExerciseBinding
 import java.time.LocalDate
+//import com.example.android.varsfit.SharedData.todaysScore
 
 class show_exercise : AppCompatActivity() {
     private lateinit var binding: ActivityShowExerciseBinding
@@ -29,6 +30,10 @@ class show_exercise : AppCompatActivity() {
         binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = exercise_adapter(this, exerciseMap!![dayOfWeek] as Map<String,Any>)
         binding.exerciseRecyclerView.adapter = adapter
+
+        binding.sumbitBtn.setOnClickListener {
+            Toast.makeText(this, "${SharedData.todaysScore}",Toast.LENGTH_LONG).show()
+        }
 
     }
 }

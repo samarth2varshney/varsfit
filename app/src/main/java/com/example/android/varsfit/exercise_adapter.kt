@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.varsfit.SharedData.todaysScore
 
 class exercise_adapter(
     private val context: Context,
@@ -22,7 +23,6 @@ class exercise_adapter(
         val checkbox1 = itemView.findViewById<CheckBox>(R.id.customCheckBox)
         val checkbox2 = itemView.findViewById<CheckBox>(R.id.customCheckBox2)
         val checkbox3 = itemView.findViewById<CheckBox>(R.id.customCheckBox3)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,12 +34,31 @@ class exercise_adapter(
 
         holder.text1.setOnClickListener {
             holder.checkbox1.isChecked = !holder.checkbox1.isChecked
+            if(holder.checkbox1.isChecked) todaysScore++
+            else todaysScore--
         }
         holder.text2.setOnClickListener {
-            holder.checkbox1.isChecked = !holder.checkbox2.isChecked
+            holder.checkbox2.isChecked = !holder.checkbox2.isChecked
+            if(holder.checkbox2.isChecked) todaysScore++
+            else todaysScore--
         }
         holder.text3.setOnClickListener {
-            holder.checkbox1.isChecked = !holder.checkbox3.isChecked
+            holder.checkbox3.isChecked = !holder.checkbox3.isChecked
+            if(holder.checkbox3.isChecked) todaysScore++
+            else todaysScore--
+        }
+
+        holder.checkbox1.setOnClickListener {
+            if(holder.checkbox1.isChecked) todaysScore++
+            else todaysScore--
+        }
+        holder.checkbox2.setOnClickListener {
+            if(holder.checkbox2.isChecked) todaysScore++
+            else todaysScore--
+        }
+        holder.checkbox3.setOnClickListener {
+            if(holder.checkbox3.isChecked) todaysScore++
+            else todaysScore--
         }
 
         if(mapData[mapData.keys.elementAt(position)] is Map<*, *>) {
@@ -51,7 +70,7 @@ class exercise_adapter(
             holder.reps.append(map["reps"].toString())
 
             holder.itemView.setOnClickListener {
-
+                
             }
         }
 
