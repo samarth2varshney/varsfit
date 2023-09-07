@@ -52,8 +52,6 @@ class male_female : AppCompatActivity() {
 
         val female = binding.femaleid
         val male = binding.maleid
-        val priorExperienceyes = binding.prioryes
-
 
         binding.sumbitid.setOnClickListener {
             val weight = binding.weightid.text.toString()
@@ -77,15 +75,6 @@ class male_female : AppCompatActivity() {
                 Toast.makeText(this,"Successfully saved",Toast.LENGTH_LONG).show()
             }.addOnFailureListener{
                 Toast.makeText(this,"Failed",Toast.LENGTH_LONG).show()
-            }
-            //end of storing data to fire store
-
-            if(priorExperienceyes.isChecked){
-                startActivity(Intent(this@male_female,prior_experience::class.java))
-                finish()
-            }else{
-                startActivity(Intent(this@male_female,Home_page::class.java))
-                finish()
             }
         }
 
