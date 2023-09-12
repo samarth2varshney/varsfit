@@ -71,7 +71,6 @@ class male_female : AppCompatActivity() {
             //storing data into firebase
             val User = user(username,weight,gender.toString())
             database.child(userid).setValue(User).addOnSuccessListener {
-
                 Toast.makeText(this,"Successfully saved",Toast.LENGTH_LONG).show()
             }.addOnFailureListener{
                 Toast.makeText(this,"Failed",Toast.LENGTH_LONG).show()

@@ -1,36 +1,23 @@
 package com.example.android.varsfit
 
-import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.android.varsfit.calender.CalendarAdapter
+import androidx.annotation.RequiresApi
 import com.example.android.varsfit.databinding.FragmentTrainingProgramBinding
-import java.time.LocalDate
-import java.time.YearMonth
-import java.time.format.DateTimeFormatter
+import java.util.Calendar
 
-class TrainingProgramFragment : Fragment() ,CalendarAdapter.OnItemListener{
+class TrainingProgramFragment : Fragment(){
     private lateinit var binding: FragmentTrainingProgramBinding
-    private lateinit var viewModel: TrainingProgramViewModel
-    private var monthYearText: TextView? = null
-    private var calendarRecyclerView: RecyclerView? = null
-    private var selectedDate: LocalDate? = null
 
-    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -42,80 +29,65 @@ class TrainingProgramFragment : Fragment() ,CalendarAdapter.OnItemListener{
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initWidgets()
-        selectedDate = LocalDate.now()
-        setMonthView()
-
-        binding.nextMonth.setOnClickListener {
-            selectedDate = selectedDate!!.plusMonths(1)
-            setMonthView()
-        }
-        binding.prevMonth.setOnClickListener {
-            selectedDate = selectedDate!!.minusMonths(1)
-            setMonthView()
+        binding.button.setOnClickListener {
+            startActivity(Intent(requireContext(),ShowTraningPrograms::class.java))
         }
 
-        val repository = TrainingProgramRepository()
-        val viewModelFactory = TrainingProgramViewModelFactory(repository)
-        viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(TrainingProgramViewModel::class.java)
+        SharedData.intilizeSharePrefernce(requireContext().applicationContext)
+        SharedData.datesStr = SharedData.sharedPreferences!!.getMutableMap("datesStr")
 
-        viewModel.trainingPrograms.observe(viewLifecycleOwner) { data ->
-            if (data != null) {
-                binding.traningRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                val adapter = traning_program_adapter(requireContext(), data)
-                binding.traningRecyclerView.adapter = adapter
+        SharedData.initialize(binding.calendarRecyclerView,
+            requireActivity(),
+            binding.monthYearTV,
+            binding.nextMonth,
+            binding.prevMonth)
+
+        if(SharedData.myPrograms!=null && !SharedData.sharedPreferences!!.getBoolean("workoutDone")) {
+
+            binding.textView17.text = SharedData.dayOfWeek
+
+            binding.myTrainingProgram.setOnClickListener {
+                startActivity(Intent(requireContext(),MyTrainingProgram::class.java))
             }
-        }
 
+            Toast.makeText(requireContext(),"first",Toast.LENGTH_LONG).show()
 
-    }
+            val animationView = binding.animationView
+            animationView.setAnimation(R.raw.sunday)
 
-    private fun initWidgets() {
-        calendarRecyclerView = binding.calendarRecyclerView
-        monthYearText = binding.monthYearTV
-    }
-
-    private fun setMonthView() {
-        monthYearText!!.text = monthYearFromDate(selectedDate)
-        val daysInMonth = daysInMonthArray(selectedDate)
-        val calendarAdapter = CalendarAdapter(daysInMonth, this)
-        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(
-            requireActivity(), 7
-        )
-        calendarRecyclerView!!.layoutManager = layoutManager
-        calendarRecyclerView!!.adapter = calendarAdapter
-    }
-
-    @SuppressLint("NewApi")
-    private fun daysInMonthArray(date: LocalDate?): ArrayList<String> {
-        val daysInMonthArray = ArrayList<String>()
-        val yearMonth = YearMonth.from(date)
-        val daysInMonth = yearMonth.lengthOfMonth()
-        val firstOfMonth = selectedDate!!.withDayOfMonth(1)
-        val dayOfWeek = firstOfMonth.dayOfWeek.value
-        for (i in 1..42) {
-            if (i <= dayOfWeek || i > daysInMonth + dayOfWeek) {
-                daysInMonthArray.add("")
-            } else {
-                daysInMonthArray.add((i - dayOfWeek).toString())
+            when (SharedData.dayOfWeek) {
+                Calendar.SUNDAY.toString() -> animationView.setAnimation(R.raw.sunday)
+                Calendar.MONDAY.toString() -> animationView.setAnimation(R.raw.monday)
+                Calendar.TUESDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
+                Calendar.WEDNESDAY.toString() -> animationView.setAnimation(R.raw.wednesday)
+                Calendar.THURSDAY.toString() -> animationView.setAnimation(R.raw.thursday)
+                Calendar.FRIDAY.toString() -> animationView.setAnimation(R.raw.friday)
+                Calendar.SATURDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
             }
+
+        }else if(SharedData.myPrograms!=null){
+            Toast.makeText(requireContext(),"second",Toast.LENGTH_LONG).show()
+            binding.myTrainingProgram.visibility = View.GONE
+            val animationView = binding.animationView
+
+            when (SharedData.dayOfWeek) {
+                Calendar.SUNDAY.toString() -> animationView.setAnimation(R.raw.sunday)
+                Calendar.MONDAY.toString() -> animationView.setAnimation(R.raw.monday)
+                Calendar.TUESDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
+                Calendar.WEDNESDAY.toString() -> animationView.setAnimation(R.raw.wednesday)
+                Calendar.THURSDAY.toString() -> animationView.setAnimation(R.raw.thursday)
+                Calendar.FRIDAY.toString() -> animationView.setAnimation(R.raw.friday)
+                Calendar.SATURDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
+            }
+        }else if(SharedData.sharedPreferences!!.getBoolean("workoutDone")){
+            Toast.makeText(requireContext(),"third",Toast.LENGTH_LONG).show()
+            binding.textView20.text = "All done for today"
         }
-        return daysInMonthArray
+
     }
 
-    @SuppressLint("NewApi")
-    private fun monthYearFromDate(date: LocalDate?): String {
-        val formatter = DateTimeFormatter.ofPattern("MMMM yyyy")
-        return date!!.format(formatter)
-    }
-
-    override fun onItemClick(position: Int, dayText: String?) {
-        if (dayText != "") {
-            val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
-            Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
-        }
-    }
 }

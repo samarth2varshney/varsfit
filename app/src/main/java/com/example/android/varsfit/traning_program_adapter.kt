@@ -6,14 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import java.io.Serializable
@@ -21,6 +15,7 @@ import java.io.Serializable
 class traning_program_adapter(
     private val context: Context,
     private val mapData: Map<String, Any>,
+    private val whatToShow: String,
 ) : RecyclerView.Adapter<traning_program_adapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,6 +42,7 @@ class traning_program_adapter(
                 val intent = Intent(context, show_exercise::class.java)
                 val bundle = Bundle()
                 bundle.putSerializable("mapData", map as Serializable)
+                bundle.putString("whatToShow",whatToShow)
                 intent.putExtra("bundle", bundle)
                 context.startActivity(intent)
             }

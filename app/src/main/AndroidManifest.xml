@@ -22,11 +22,15 @@
         android:theme="@style/Theme.Varsfit"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".MyTrainingProgram"
+            android:exported="false" />
+        <activity
+            android:name=".ShowTraningPrograms"
             android:exported="false" />
         <activity
             android:name=".show_exercise"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".CustomUiActivity"
             android:exported="true"
@@ -46,7 +50,8 @@
         </activity>
         <activity
             android:name=".Home_page"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -74,6 +79,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

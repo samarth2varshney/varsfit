@@ -41,17 +41,8 @@ class login_page : AppCompatActivity() {
 
         val check = GoogleSignIn.getLastSignedInAccount(this)
         if(check!=null){
-//            database.child(userid).get().addOnSuccessListener {
-//                if (it.exists()) {
-//                    editor.putInt("gender",it.child("gender").value.toString().toInt())
-//                    editor.apply()
-//                    edit.putString("weight",it.child("weight").value.toString())
-//                    edit.apply()
-                    startActivity(Intent(this,Home_page::class.java))
-                    finish()
-//                }
-//            }
-
+            startActivity(Intent(this,Home_page::class.java))
+            finish()
         }
 
         binding.signInbtn.setOnClickListener {

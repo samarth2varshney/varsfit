@@ -1,6 +1,5 @@
 package com.example.android.varsfit
 
-import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
