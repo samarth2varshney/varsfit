@@ -10,7 +10,7 @@
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
     android:background="@drawable/round_white_bg"
-    android:backgroundTint="@color/black"
+    android:backgroundTint="@color/Drakgrey"
     android:elevation="10dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.5"

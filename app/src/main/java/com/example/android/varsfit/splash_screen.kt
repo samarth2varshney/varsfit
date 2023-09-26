@@ -17,7 +17,7 @@ class splash_screen : AppCompatActivity() {
         val sideAnimation = AnimationUtils.loadAnimation(this,R.anim.slide)
         backgroundimg.startAnimation(sideAnimation)
 
-        Handler().postDelayed({intent = Intent(this@splash_screen, login_page::class.java)
+        Handler().postDelayed({intent = Intent(this@splash_screen, SignInActivity::class.java)
             startActivity(intent)
             finish()
         },1600)

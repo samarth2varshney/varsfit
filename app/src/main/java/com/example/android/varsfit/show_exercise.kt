@@ -91,7 +91,9 @@ class show_exercise : AppCompatActivity() {
         binding.sumbitBtn.text = "Follow this plan"
 
         binding.sumbitBtn.setOnClickListener {
+
             SharedData.myPrograms = map!!
+            finish()
         }
 
     }

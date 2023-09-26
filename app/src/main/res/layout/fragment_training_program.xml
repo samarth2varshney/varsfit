@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".TrainingProgramFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/Lightblack">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@id/calender"
@@ -38,6 +38,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:text="@string/prevMonth"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -47,8 +48,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:text="Feb 2021"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <Button
@@ -58,6 +59,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:text=">"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -78,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="SUN"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -86,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="MON"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -94,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TUE"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -102,6 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="WED"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -110,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="THUR"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -118,6 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="FRI"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
 
@@ -126,6 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="SAT"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -150,6 +159,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Button"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/Drakgrey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +172,6 @@
             android:layout_height="91dp"
             android:layout_marginTop="20dp"
             android:rotation="30"
-            android:rotationX="-177"
             android:src="@drawable/arrow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -174,6 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="CLICK here to choose your faviroute plan"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -188,6 +199,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/round_white_bg"
+                    android:backgroundTint="@color/Drakgrey"
                     android:elevation="10dp"
                     android:padding="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -198,7 +210,7 @@
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/animationView"
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="140dp"
                         android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -212,6 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Monday"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -227,6 +240,7 @@
                         android:gravity="center"
                         android:text="Don't Miss todays workout\nyou know what they say consistency is the key"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -237,14 +251,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="CLICK Here for todays workout"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/animationView" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

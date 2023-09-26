@@ -54,38 +54,23 @@ class TrainingProgramFragment : Fragment(){
                 startActivity(Intent(requireContext(),MyTrainingProgram::class.java))
             }
 
-            Toast.makeText(requireContext(),"first",Toast.LENGTH_LONG).show()
-
             val animationView = binding.animationView
             animationView.setAnimation(R.raw.sunday)
 
+            val dayOfWeek: Array<String> = arrayOf("","SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY")
+
             when (SharedData.dayOfWeek) {
-                Calendar.SUNDAY.toString() -> animationView.setAnimation(R.raw.sunday)
-                Calendar.MONDAY.toString() -> animationView.setAnimation(R.raw.monday)
-                Calendar.TUESDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
-                Calendar.WEDNESDAY.toString() -> animationView.setAnimation(R.raw.wednesday)
-                Calendar.THURSDAY.toString() -> animationView.setAnimation(R.raw.thursday)
-                Calendar.FRIDAY.toString() -> animationView.setAnimation(R.raw.friday)
-                Calendar.SATURDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
+                dayOfWeek[Calendar.SUNDAY] -> animationView.setAnimation(R.raw.sunday)
+                dayOfWeek[Calendar.MONDAY] -> animationView.setAnimation(R.raw.monday)
+                dayOfWeek[Calendar.TUESDAY] -> animationView.setAnimation(R.raw.tuesday)
+                dayOfWeek[Calendar.WEDNESDAY] -> animationView.setAnimation(R.raw.wednesday)
+                dayOfWeek[Calendar.THURSDAY] -> animationView.setAnimation(R.raw.thursday)
+                dayOfWeek[Calendar.FRIDAY] -> animationView.setAnimation(R.raw.friday)
+                dayOfWeek[Calendar.SATURDAY] -> animationView.setAnimation(R.raw.tuesday)
             }
 
-        }else if(SharedData.myPrograms!=null){
-            Toast.makeText(requireContext(),"second",Toast.LENGTH_LONG).show()
+        }else if(SharedData.myPrograms==null){
             binding.myTrainingProgram.visibility = View.GONE
-            val animationView = binding.animationView
-
-            when (SharedData.dayOfWeek) {
-                Calendar.SUNDAY.toString() -> animationView.setAnimation(R.raw.sunday)
-                Calendar.MONDAY.toString() -> animationView.setAnimation(R.raw.monday)
-                Calendar.TUESDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
-                Calendar.WEDNESDAY.toString() -> animationView.setAnimation(R.raw.wednesday)
-                Calendar.THURSDAY.toString() -> animationView.setAnimation(R.raw.thursday)
-                Calendar.FRIDAY.toString() -> animationView.setAnimation(R.raw.friday)
-                Calendar.SATURDAY.toString() -> animationView.setAnimation(R.raw.tuesday)
-            }
-        }else if(SharedData.sharedPreferences!!.getBoolean("workoutDone")){
-            Toast.makeText(requireContext(),"third",Toast.LENGTH_LONG).show()
-            binding.textView20.text = "All done for today"
         }
 
     }

@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title=" VarsFit"
-        app:titleTextColor="@color/black">
+        android:backgroundTint="@color/Drakgrey"
+        app:titleTextColor="@color/white">
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
@@ -43,9 +44,9 @@
         android:id="@+id/bottomNavigationView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/Drakgrey"
         app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-        app:itemTextColor="@color/blackblue"
+        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

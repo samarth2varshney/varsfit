@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@drawable/round_white_bg"
+    android:backgroundTint="@color/Drakgrey"
     android:elevation="10dp"
     android:padding="13dp">
 

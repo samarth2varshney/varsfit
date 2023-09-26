@@ -22,6 +22,9 @@
     <color name="blue">#0000FF</color>
     <color name="navy">#000080</color>
     <color name="black">#000000</color>
-    <color name="blackblue">#111827</color>
-
+    <color name="Lightblack">#3F4447</color>
+    <color name="Drakgrey">#6C777D</color>
+    <color name="blackblue">#3F4447</color>
+    <color name="colorAccent">#2563EA</color>
+    <color name="blackishblue">#111827</color>
 </resources>
